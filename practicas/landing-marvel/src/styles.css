@@ -1,30 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: sans-serif;
+    font-family: 'Poppins', sans-serif;
     color: #fff;
 }
 
 html{
     font-size: 10px;
+    scroll-behavior: smooth;
 }
 
 body{
     background-color: #000;
-    background-image: url('../ironman.jpg');
-    object-fit: contain;
-    height: 100vh;
-    overflow: hidden;
+    
+    overflow-x: hidden;
+    overflow-y: auto;
 }
+
+.back1{
+    background-image: url('../ironman.jpg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position-x: right;
+}
+
 .back-overlay{
     background-image: url('../src/smoke.png');
     width: 100%;
-    height: 100%;
+    height: 50%;
     overflow: hidden;
     position: absolute;
     z-index: 3;
-    top: 200px;
+    bottom: 65px;
     object-fit: contain;
 }
 
@@ -74,15 +85,24 @@ main{
     flex-direction: column;
 }
 
+main hr{
+    width: 500px;
+}
+
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
 main .title{
     margin-top: 30px;
     cursor: default;
 }
 
 main .title h1{
-    font-size: 13rem;
+    font-size: 10rem;
     display: inline-block;
     position: relative;
+    letter-spacing: -10px;
+    font-weight: 400;
+    font-family: 'Poppins', sans-serif;
 }
 
 main .title h1::before{
@@ -91,7 +111,7 @@ main .title h1::before{
     position: absolute;
     left: 0;
     transition: all .4s;
-    bottom: 135px;
+    bottom: 120px;
 }
 
 main .title h1::after{
@@ -100,7 +120,7 @@ main .title h1::after{
     position: absolute;
     right: 0;
     transition: all .4s;
-    top: 135px;
+    top: 120px;
 }
 
 main .title:hover h1::before{
@@ -117,6 +137,8 @@ main .title h5{
     margin-left: .8rem;
     font-weight: lighter;
 }
+
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
 .container .content{
     z-index: 5;
@@ -156,24 +178,53 @@ main .title h5{
     color: #000;
 }
 
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
-footer{
-    position: relative;
-    bottom: -40px;
-    left: 5px;
+main .bio{
+    margin-top: 100px;
+    height: 100vh;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    width: 40vw;
 }
+
+main .bio h3{
+    font-size: 3rem;
+    margin-bottom: 2rem;
+}
+main .bio h4{
+    font-size: 2rem;
+    margin-bottom: 5rem;
+}
+main .bio p{
+    margin-bottom: 3rem;
+}
+
 
 .social{
     display: flex;
-    justify-content: flex-end;
-    gap: 50px;
-    margin: 0 200px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    width: 50px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    background-color: #fff;
+    opacity: .6;
 }
 .facebook, .twitter, .instagram{
     background-color: transparent;
-    border-radius: 50%;
     width: 40px;
-    margin: 5px;
+    padding: 5px 0;
     cursor: pointer;
     z-index: 4;
+    border-top: 1px solid #000;
+}
+
+footer{
+position: relative;
+    bottom: -40px;
+    left: 5px;
 }
