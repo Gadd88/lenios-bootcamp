@@ -32,11 +32,8 @@ header{
     align-items: center;
     justify-content: space-between;
     padding: 0 20px;
-    position: Sticky;
-    top: 0;
     background-color: #000;
     height: 100px;
-    z-index: 3;
 }
 header .logo img{
     width: 150px;
@@ -279,6 +276,7 @@ main .bio>p {
     border-radius: 20px;
     overflow: hidden;
     transition: all .4s;
+    height: 600px;
 }
 
 .film:hover img{
