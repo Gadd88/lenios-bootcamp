@@ -32,7 +32,11 @@ body{
     background-image: url('../src/smoke.png');
     width: 500px;
     height: 300px;
-    /* border: 1px solid red;   */
+<<<<<<< HEAD
+    border: 1px solid red;  
+=======
+    border: 1px solid red;  
+>>>>>>> 75039117513b060c9b732f5cd3989442d518dd6a
     position: absolute;
 }
 
