@@ -360,6 +360,7 @@ footer{
 
     .container{
         width: 100%;
+        height: 1300px;
     }
 
     .back1{
@@ -464,9 +465,9 @@ footer{
     }
 }
 
-@media screen and (max-width: 700px){
+@media screen and (max-width: 750px){
     .back2{
-        height: 600px;
+        height: 700px;
         margin: 0 auto;
     }
     .back2 .bio{
@@ -492,6 +493,106 @@ footer{
     }
 
     .back3{
-        margin: 150px 15px;
+        margin: 100px 15px;
+    }
+
+    .back4{
+        height: 500px;
+        margin: 200px auto;
+    }
+
+    .back4 .scenes{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .back4 .scenes iframe{
+        width: 250px;
+    }
+}
+
+@media screen and (max-width: 650px){
+    .back3{
+        margin: 300px 15px 400px 15px;
+    }
+    .back4{
+        margin-bottom: 50px;
+    }
+}
+
+@media screen and (max-width: 500px){
+    .container{
+        padding: 0;
+        height: 100vh;
+    }
+
+    .back1, .back2, .back3, .back4{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .social{
+        display: none;
+    }
+
+    .back1 .content{
+        padding: 5px;
+    }
+
+    .back1 .content .about{
+        width: 100%;
+        margin: 10px 0;
+        padding: 10px;
+    }
+
+    .back2 .bio .paraps{
+        display: grid;
+        grid-template-columns: 1fr;
+        margin: 0;
+        width: 100%;
+        padding: 30px;
+    }
+
+    .back3{
+        margin-top: 800px;
+        margin-bottom: 800px;
+    }
+    .back3 .filmo{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+    }
+    .back3 .filmo .film{
+        width: 250px;
+        height: 350px;
+    }
+
+    .back4{
+        margin: 0;
+        padding: 0;
+        margin-top: 200px;
+    }
+
+    .back4 .scenes{
+        width: 100%;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .back .scenes iframe{
+        width: 250px;
+        padding: 0;
     }
 }
