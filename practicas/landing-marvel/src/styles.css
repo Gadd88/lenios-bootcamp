@@ -25,15 +25,6 @@ body{
     background-repeat: no-repeat;
     background-size: contain;
     background-position-x: right;
-    position: relative;
-}
-
-.back-overlay{
-    background-image: url('../src/smoke.png');
-    width: 500px;
-    height: 300px;
-    border: 1px solid red;  
-    position: absolute;
 }
 
 header{
@@ -41,6 +32,11 @@ header{
     align-items: center;
     justify-content: space-between;
     padding: 0 20px;
+    position: Sticky;
+    top: 0;
+    background-color: #000;
+    height: 100px;
+    z-index: 3;
 }
 header .logo img{
     width: 150px;
@@ -64,6 +60,10 @@ header nav ul li{
     position: relative;
     font-size: 1.5rem;
     text-transform: lowercase;
+}
+
+header nav ul li a{
+    text-decoration: none;
 }
 
 header nav ul li::before{
@@ -93,7 +93,6 @@ main hr{
 }
 
 main .title{
-    margin-top: 30px;
     cursor: default;
 }
 
@@ -141,12 +140,8 @@ main .title h5{
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
-main .content{
-    z-index: 5;
-}
-
 main .content .about{
-    margin-top: 50px;
+    margin: 50px 0;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -160,11 +155,9 @@ main .content .about h3{
 main .content .about p{
     font-size: 1.5rem;
     line-height: 2.5rem;
-    z-index: 10;
 }
 
 main .content .btn{
-    margin-top: 20px;
     padding: 20px;
     border-radius: 25px;
     background-color: transparent;
@@ -173,10 +166,13 @@ main .content .btn{
     border: 1px solid #fff;
     letter-spacing: 2px;
     font-size: 1.5rem;
-    
 }
 
-.container .content .btn:hover{
+main .content .btn a{
+    text-decoration: none;
+}
+
+.container .content .btn:hover, .btn:hover a{
     background-color: #fff;
     color: #000;
 }
@@ -184,23 +180,50 @@ main .content .btn{
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
 main .bio{
-    margin-top: 100px;
+    margin: 150px 100px;
     height: 100vh;
     font-size: 1.5rem;
     line-height: 2rem;
-    width: 40vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 main .bio h3{
     font-size: 3rem;
     margin-bottom: 2rem;
 }
+
 main .bio h4{
     font-size: 2rem;
     margin-bottom: 5rem;
 }
-main .bio p{
-    margin-bottom: 3rem;
+
+main .bio .paraps{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 80px;
+    grid-gap: 30px;
+    line-height: 3rem;
+    align-items: center;
+    justify-content: center;
+}
+main .bio .paraps p::first-letter{
+    font-size: 6rem;
+    opacity: .3;
+    padding-right: 10px;
+}
+
+main .bio hr{
+    width: 90%;
+    margin: 20px auto;
+}
+
+main .bio>p {
+    width: 50%;
+    line-height: 3rem;
+    text-align: center;
 }
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
@@ -233,6 +256,61 @@ main .bio p{
 .facebook:hover, .twitter:hover, .instagram:hover{
     transform: scale(1.2);
 }
+
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
+.back3{
+    height: 100vh;
+    margin: 100px;
+}
+
+.back3 article{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: auto;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.back3 article .film{
+    width: 300px;
+    border: 2px solid #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all .4s;
+}
+
+.film:hover img{
+    transform: scale(1.1);
+    transition: all .4s;
+    z-index: 10;
+}
+
+.film-content{
+    padding: 15px;
+    line-height: 2rem;
+    font-size: 1.2rem;
+}
+
+.back3 img{
+    width: 100%;
+    border-radius: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
