@@ -259,6 +259,12 @@ main .bio>p {
 .back3{
     height: 100vh;
     margin: 100px;
+    text-align: center;
+}
+
+.back3>h3{
+    font-size: 3rem;
+    margin-bottom: 4rem;
 }
 
 .back3 article{
@@ -277,6 +283,7 @@ main .bio>p {
     overflow: hidden;
     transition: all .4s;
     height: 600px;
+    padding: 10px;
 }
 
 .film:hover img{
@@ -286,9 +293,9 @@ main .bio>p {
 }
 
 .film-content{
-    padding: 15px;
     line-height: 2rem;
     font-size: 1.2rem;
+    text-align: left;
 }
 
 .back3 img{
@@ -297,23 +304,73 @@ main .bio>p {
 }
 
 
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+.back4{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    height: 100vh;
+    margin-bottom: 50px;
+}
 
+.back4 h3{
+    font-size: 3rem;
+    margin-bottom: 4rem;
+}
 
+.back4 .scenes{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 50px;
+    padding: 0 50px;
+}
 
-
-
-
-
-
-
-
-
+.back4 .scenes iframe{
+    border-radius: 20px;
+    border: 2px solid #fff;
+}
 
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
 footer{
-position: fixed;
+    position: fixed;
+    height: 15px;
+    background-color: #000;
+    width: 100%;
     bottom: -0;
-    right: 5px;
+}
+
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*++++++++++++++++++++++++RESPONSIVE+++++++++++++++++++++++++++++++++*/
+@media screen and (max-width: 800px){
+    header{
+        display: none;
+        margin-bottom: 50px;
+    }
+    .back1{
+        height: 70vh;
+        background-image: none;
+    }
+    .back1 .title{
+        background-color: rgba(255,255,255,.2)
+    }
+
+    .back1 .content .about{
+        padding: 50px;
+    }
+
+    .back1 .content .btn{
+        display: none;
+    }
+
+    
 }
