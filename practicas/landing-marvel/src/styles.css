@@ -176,7 +176,7 @@ main .content .btn a{
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
-main .bio{
+.back2 .bio{
     margin: 150px 100px;
     height: 100vh;
     font-size: 1.5rem;
@@ -187,17 +187,17 @@ main .bio{
     align-items: center;
 }
 
-main .bio h3{
+.back2 .bio h3{
     font-size: 3rem;
     margin-bottom: 2rem;
 }
 
-main .bio h4{
+.back2 .bio h4{
     font-size: 2rem;
     margin-bottom: 5rem;
 }
 
-main .bio .paraps{
+.back2 .bio .paraps{
     display: grid;
     grid-template-columns: 1fr 1fr;
     padding: 0 80px;
@@ -206,18 +206,18 @@ main .bio .paraps{
     align-items: center;
     justify-content: center;
 }
-main .bio .paraps p::first-letter{
+.back2 .bio .paraps p::first-letter{
     font-size: 6rem;
     opacity: .3;
     padding-right: 10px;
 }
 
-main .bio hr{
+.back2 .bio hr{
     width: 90%;
     margin: 20px auto;
 }
 
-main .bio>p {
+.back2 .bio>p {
     width: 50%;
     line-height: 3rem;
     text-align: center;
@@ -351,26 +351,147 @@ footer{
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 /*++++++++++++++++++++++++RESPONSIVE+++++++++++++++++++++++++++++++++*/
+
 @media screen and (max-width: 800px){
     header{
         display: none;
         margin-bottom: 50px;
     }
+
+    .container{
+        width: 100%;
+    }
+
     .back1{
-        height: 70vh;
         background-image: none;
+        height: 500px;
     }
     .back1 .title{
-        background-color: rgba(255,255,255,.2)
+        background-color: rgba(255,255,255,.2);
+        width: 100%;
+    }
+
+    .back1 .content {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
     }
 
     .back1 .content .about{
         padding: 50px;
+        text-align: center;
+    }
+
+    .back1 .content .about h3{
+        font-size: 3rem;
+        display: block;
     }
 
     .back1 .content .btn{
         display: none;
     }
 
+    .social{
+        position: absolute;
+        top: 13px;
+        right: 10px;
+    }
+
+    .back2{
+        height: 700px;
+        width: 100%;
+    }
+
+    .back2 .bio{
+        margin: 100px 0 100px 0;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .back2 .bio h3{
+        margin: 0;
+        position: relative;
+    }
+    .back2 .bio h4{
+        margin: 0;
+    }
+
+    .back2 .bio .paraps{
+        margin: 10px 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        align-items: start;
+        gap: 10px;
+        height: 60%;
+        font-size: 12px;
+    }
     
+    .back3{
+        margin-top: 550px;
+        height: 200px;
+        display: block;
+    }
+
+    .back3 .filmo{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        flex-wrap: nowrap;
+    }
+
+    .back3 .filmo .film{
+        height: 250px;
+    }
+
+    .back3 .filmo .film .film-content{
+        display: none;
+    }
+
+    .back4{
+        margin-top: 250px;
+    }    
+    .back4 .scenes{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        gap: 10px;
+    }
+}
+
+@media screen and (max-width: 700px){
+    .back2{
+        height: 600px;
+        margin: 0 auto;
+    }
+    .back2 .bio{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 0 auto;
+    }
+    .back2 .bio .paraps{
+        display: grid;
+        grid-template-columns: 1fr;
+        align-items: center;
+        text-align: left;
+        grid-gap: 10px;
+        line-height: 2.3rem;
+    }
+    .back2 .bio .paraps p::first-letter{
+        font-size: 3rem;
+    }
+
+    .back2 .bio>p, .bio>hr{
+        display: none;
+    }
+
+    .back3{
+        margin: 150px 15px;
+    }
 }
