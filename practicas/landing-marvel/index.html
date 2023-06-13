@@ -4,95 +4,88 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./src/styles.css">
-    <title>Marvel Studios - Iron Man</title>
+    <link rel="stylesheet" href="./src/estilo.css">
+    <script src="https://kit.fontawesome.com/8d8e431bc7.js" crossorigin="anonymous"></script>
+    <title>Iron Man - Landing</title>
 </head>
 <body>
-    
-    <header class="header">
+    <header id="header" class="header">
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#bio">Biography</a></li>
-                <li><a href="#filmo">Filmography</a></li>
+                <li><a href="#movies">Filmography</a></li>
                 <li><a href="#scenes">Cut/Scenes</a></li>
             </ul>
+            <div class="logo">
+                <img src="./src/marvel2.jpg" alt="logo marvel">
+            </div>
         </nav>
-        <div class="logo">
-            <img src="./src/marvel2.jpg" alt="logo marvel">
-        </div>
     </header>
-    <main class="container">
-        <section class="back1">
-            <section class="title" id="home">
+    <main>
+        <section class="first" id="home">
+            <article class="title">
                 <h1>IRON MAN</h1>
-                <h5>ANTHONY EDWARD "TONY" STARK</h5>
-            </section>
+                <h4>ANTHONY EDWARD "TONY" STARK</h4>
+            </article>
             <hr>
-            <section class="content">
+            <article class="intro">
                 <div class="about">
                     <h3>About</h3>
                     <p>Iron Man is a fictional superhero who appears in American comic books published by Marvel Comics, as well as related media. Characters created by the author...</p>
                 </div>
                 <button class="btn"><a href="#bio">see more</a></button>
-            </section>
+            </article>
         </section>
-        <section class="social">
-            <img class="twitter" src="./src/icons/twitter.svg"></img>
-            <img class="facebook" src="./src/icons/facebook.svg"></img>
-            <img class="instagram" src="./src/icons/linkedin.svg"></img>
+        <section class="second" id="bio">
+            <h2>Biography</h2>
+            <h4>COOL EXEC, HEART OF STEEL</h4>
+            <article class="paraps">
+                <p><span>1</span> Tony Stark is the wealthy son of industrialist and weapons manufacturer Howard Stark and his wife, Maria. Tony grew up a genius with a brilliant mind for technology and inventions and, naturally, followed in his father’s footsteps, inheriting Stark Industries upon his parents’ untimely death. Tony designed many weapons of war for Stark Industries, far beyond what any other company was creating, while living the lifestyle of a bon vivant.</p>
+                <p><span>2</span> Fate would take a dark turn for Tony Stark once he decided to consult on a weapons contract overseas in enemy terrain. An improvised explosive device exploded underneath Tony’s transport, and he was brought to the brink of death.</p>
+                <p><span>3</span> Awakening as a prisoner of the warlord Wong-Chu, Tony made a gruesome discovery: the explosion had sent a piece of shrapnel mere inches from his heart. It was only the timely intervention of fellow captive and engineer Yinsen that kept the shrapnel at bay.While held captive, and forced to work on weapons, Tony turned his near-death experience into inspiration. What if he could power an iron suit that would not only keep the shrapnel from killing Tony, but also help him to escape?</p>
+                <p><span>4</span> Combining their genius, Tony and Yinsen built a mighty suit of iron armor that would be dubbed Iron Man. This first suit left a lot of room for improvement, but it still did what Tony couldn’t do alone. Yinsen sacrificed his life so the final preparations could be made, and Tony, wearing the Iron Man suit for the first time, escaped and returned to the United States a changed man.With full access to his equipment, Tony built a new, more streamlined suit of armor—the first of many updated versions he would create—and dedicated his life to fighting threats to the world.</p>
+                <hr class="b-last">
+                <p class="last">Since that first suit built in a cave, Tony has created dozens of new suits and upgrades over the years. However, throughout the 50-plus Iron Man models, there are common offensive and defense capabilities found in most iterations.</p>
+            </article>
         </section>
-        <section class="back2" id="bio">
-            <section class="bio">
-                <h3>Biography</h3>
-                <h4>COOL EXEC, HEART OF STEEL</h4>
-                <article class="paraps">
-                    <p><span>1</span> Tony Stark is the wealthy son of industrialist and weapons manufacturer Howard Stark and his wife, Maria. Tony grew up a genius with a brilliant mind for technology and inventions and, naturally, followed in his father’s footsteps, inheriting Stark Industries upon his parents’ untimely death. Tony designed many weapons of war for Stark Industries, far beyond what any other company was creating, while living the lifestyle of a bon vivant.</p>
-                    <p><span>2</span> Fate would take a dark turn for Tony Stark once he decided to consult on a weapons contract overseas in enemy terrain. An improvised explosive device exploded underneath Tony’s transport, and he was brought to the brink of death.</p>
-                    <p><span>3</span> Awakening as a prisoner of the warlord Wong-Chu, Tony made a gruesome discovery: the explosion had sent a piece of shrapnel mere inches from his heart. It was only the timely intervention of fellow captive and engineer Yinsen that kept the shrapnel at bay.While held captive, and forced to work on weapons, Tony turned his near-death experience into inspiration. What if he could power an iron suit that would not only keep the shrapnel from killing Tony, but also help him to escape?</p>
-                    <p><span>4</span> Combining their genius, Tony and Yinsen built a mighty suit of iron armor that would be dubbed Iron Man. This first suit left a lot of room for improvement, but it still did what Tony couldn’t do alone. Yinsen sacrificed his life so the final preparations could be made, and Tony, wearing the Iron Man suit for the first time, escaped and returned to the United States a changed man.With full access to his equipment, Tony built a new, more streamlined suit of armor—the first of many updated versions he would create—and dedicated his life to fighting threats to the world.</p>
-                </article>
-                <hr>
-                <p>Since that first suit built in a cave, Tony has created dozens of new suits and upgrades over the years. However, throughout the 50-plus Iron Man models, there are common offensive and defense capabilities found in most iterations.</p>
-            </section>
-        </section>
-        <section class="back3"  id="filmo">
-            <h3>Filmography</h3>
-            <article class="filmo">
-                <div class="film">
+        <section class="third"  id="movies">
+            <h2>Filmography</h2>
+            <article class="movies">
+                <div class="movie">
                     <figure>
                         <img src="./src/iron1.jpg" alt="Iron Man 1 Poster">
                     </figure>
-                    <div class="film-content">
-                        <h3 class="film-tit">Iron Man 1</h3>
-                        <p class="film-year">2008</p>
-                        <p class="film-desc">A billionaire industrialist and genius inventor, Tony Stark (Robert Downey Jr.), is conducting weapons tests overseas, but terrorists kidnap him to force him to build a devastating weapon...</p>
+                    <div class="movie-content">
+                        <h3 class="movie-title">Iron Man 1</h3>
+                        <p class="movie-year">2008</p>
+                        <p class="movie-desc">A billionaire industrialist and genius inventor, Tony Stark (Robert Downey Jr.), is conducting weapons tests overseas, but terrorists kidnap him to force him to build a devastating weapon...</p>
                     </div>
                 </div>
-                <div class="film">
+                <div class="movie">
                     <figure>
                         <img src="./src/iron2.jpg" alt="Iron man 2 Poster">
                     </figure>
-                    <div class="film-content">
-                        <h3 class="film-tit">Iron Man 2</h3>
-                        <p class="film-year">2010</p>
-                        <p class="film-desc">With the world now aware that he is Iron Man, billionaire inventor Tony Stark (Robert Downey Jr.) faces pressure from all sides to share his technology with the military...</p>
+                    <div class="movie-content">
+                        <h3 class="movie-title">Iron Man 2</h3>
+                        <p class="movie-year">2010</p>
+                        <p class="movie-desc">With the world now aware that he is Iron Man, billionaire inventor Tony Stark (Robert Downey Jr.) faces pressure from all sides to share his technology with the military...</p>
                     </div>
                 </div>
-                <div class="film">
+                <div class="movie">
                     <figure>
                         <img src="./src/iron3.png" alt="Iron Man 3 Poster">
                     </figure>
-                    <div class="film-content">
-                        <h3 class="film-tit">Iron Man 3</h3>
-                        <p class="film-year">2013</p>
-                        <p class="film-desc">Plagued with worry and insomnia since saving New York from destruction, Tony Stark (Robert Downey Jr.), now, is more dependent on the suits that give him his Iron Man persona -- so much ...</p>
+                    <div class="movie-content">
+                        <h3 class="movie-title">Iron Man 3</h3>
+                        <p class="movie-year">2013</p>
+                        <p class="movie-desc">Plagued with worry and insomnia since saving New York from destruction, Tony Stark (Robert Downey Jr.), now, is more dependent on the suits that give him his Iron Man persona -- so much ...</p>
                     </div>
                 </div>
             </article>
         </section>
-        <section class="back4" id="scenes">
-            <h3>Movies Scenes</h3>
+        <section class="fourth" id="scenes">
+            <h2>Movies Scenes</h2>
             <article class="scenes">
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/0qDEp1pcS6k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/89hCOgVa5LI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -100,8 +93,9 @@
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/gkKjL2Tr6uI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </article>
         </section>
+        <a href="#header"><img class="chevron" src="./src/icons/up-chevron.png" alt="chevron"></a>
     </main>
-    <footer class="footer">
+    <footer>
         <p>Marvel Studios &copy; 2023</p>
     </footer>
 </body>

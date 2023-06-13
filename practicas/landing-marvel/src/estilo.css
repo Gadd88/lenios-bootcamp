@@ -1,0 +1,418 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 10px;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+img{
+    width: 250px;
+}
+
+body{
+    width: 375px;
+    margin: auto;
+    color: #fff;
+    background: #000;
+    overflow-x: hidden;
+    scroll-snap-align: x mandatory;
+}
+/* ********************NAV************************************ */
+header{
+    height: 100px;
+    padding: 1rem;
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+nav ul{
+    display: flex;
+    gap: 10px;
+}
+.logo img{
+    width: 100px;
+}
+nav ul li{
+    list-style: none;
+}
+
+nav ul li a{
+    color: #fff;
+    text-decoration: none;
+}
+
+/* ****************************BODY**************************** */
+
+/* ****************************HOME**************************** */
+.first{
+    background-image: url('../ironman.jpg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position-x: 150px;
+    background-position-y: 50px;
+    width: 100%;
+    height: 400px;
+    padding: 1rem;
+    scroll-snap-align: center;
+}
+.first hr{
+    width: 200px;
+}
+
+.title h1{
+    font-size: 4rem;
+    letter-spacing: -3px;
+}
+.title h4{
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.intro{
+    width: 50%;
+    margin-top: 50px;
+}
+.about{
+    margin-bottom: 2rem;
+}
+.about h3{
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+.about p{
+    line-height: 2rem;
+}
+
+.intro button{
+    padding: 1rem;
+    background: transparent;
+    border: 1px solid #fff;
+}
+.intro button:hover{
+    background-color: #fff;
+}
+.intro button:hover a{
+    color: #000;
+}
+.intro button a{
+    color: #fff;
+    text-decoration: none;
+}
+
+/* ****************************BIO**************************** */
+.second{
+    width: 100%;
+    padding: 1rem;
+    scroll-snap-align: center;
+}
+.second h2{
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    position: relative;
+}
+.second h4{
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+}
+
+.paraps{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    line-height: 2rem;
+    font-size: 1.2rem;
+    width: 90%;
+}
+.paraps p::first-letter{
+    font-size: 2rem;
+    opacity: .4;
+    margin-right: .5rem;
+}
+.paraps hr{
+    width: 200px;
+    margin: auto;
+}
+
+/* ****************************MOVIES**************************** */
+.third{
+    margin-top: 50px;
+    padding: 1rem;
+    scroll-snap-align: center;
+}
+
+.third>h2{
+    margin-bottom: 2rem;
+    font-size: 3rem;
+}
+
+.movies{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.movie{
+    border: 2px solid #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    width: 275px;
+    margin: auto;
+    transition: all .4s;
+    background-color: #000;
+}
+.movie:hover{
+    transform: scale(1.2);
+}
+.movie figure img{
+    width: 275px;
+    height: 320px;
+    object-fit: cover;
+}
+.movie-content{
+    padding: 1rem;
+}
+.movie-title{
+    font-size: 2rem;
+}
+.movie-year{
+    font-size: 1.5rem;
+}
+.movie-desc{
+    font-size: 1.2rem;
+}
+
+/* ****************************SCENES**************************** */
+.fourth{
+    margin: 50px 0;
+    padding: 1rem;
+    scroll-snap-align: center;
+}
+
+.fourth h2{
+    font-size: 3rem;
+    margin-bottom: 2rem;
+}
+
+.scenes{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+}
+
+iframe{
+    border: 2px solid #fff;
+    border-radius: 20px;
+    width: 300px;
+}
+
+/* ****************************FOOTER**************************** */
+footer{
+    background-color: #000;
+    width: 100%;
+    height: 2rem;
+    position: fixed;
+    bottom: 0;
+    padding-left: 1rem;
+}
+
+.chevron{
+    background-color: rgba(255,255,255,.8);
+    position: fixed;
+    bottom: 50px;
+    right: 10px;
+    width: 20px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,.7)
+}
+/* *****************************RESPONSIVE*************************** */
+@media screen and (min-width: 600px){
+    body{
+        width: 768px;
+    }
+    nav{
+        justify-content: space-around;
+        font-size: 1.5rem;
+        width: 80%;
+        margin: auto;
+        border-bottom: 1px solid #fff;
+    }
+    nav ul li{
+        border: 1px solid #fff;
+        padding: .5rem;
+    }
+    nav ul li:hover{
+        background-color: #fff;
+    }
+    nav ul li:hover a{
+        color: #000;
+    }
+    /* *************************************************************** */
+    .first{
+        margin-top: 50px;
+        height: 50vh;
+    }
+    .first h1{
+        font-size: 8rem;
+        cursor: pointer;
+        margin-bottom: -1rem;
+    }
+    .first h4{
+        font-size: 2rem;
+    }
+    .first hr{
+        width: 400px;
+    }
+    .about{
+        width: 350px;
+        background-color: rgba(0,0,0,.7);
+    }
+    .about h3{
+        font-size: 4rem;
+    }
+    .about p{
+        font-size: 1.5rem;
+        line-height: 3rem;
+    }
+    .intro button{
+        width: 200px;
+    }
+    /* *************************************************************** */
+    .second{
+        margin: 50px 0;
+    }
+    .second h2{
+        text-decoration: underline;
+    }
+    .paraps{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        font-size: 1.5rem;
+        line-height: 1.6;
+        grid-gap: 2rem;
+    }
+    .paraps p::first-letter{
+        font-size: 3rem;
+        opacity: .3;
+        margin-right: .5rem;
+    }
+    .b-last{
+        grid-column: 1/3;
+    }
+    .last{
+        grid-column: 1/3;
+        margin: auto;
+        width: 400px;
+        text-align: center;
+    }
+    /* *************************************************************** */
+    .third h2{
+        text-decoration: underline;
+    }
+    .movie{
+        width: 300px;
+    }
+    .movie figure img{
+        width: 300px;
+        height: 350px;
+        object-fit: cover;
+    }
+    /* *************************************************************** */
+    .fourth h2{
+        text-decoration: underline;
+    }
+}
+
+@media screen and (min-width: 900px){
+    nav{
+        width: 90%;
+        justify-content: space-between;
+    }
+    body{
+        width: 100%;
+    }
+    .first{
+        height: 100vh;
+    }
+    .first h1{
+        margin-top: 100px;
+        display: inline-block;
+        position: relative;
+    }
+    h1::before{
+        content: '';
+        width: 0;
+        position: absolute;
+        left: 0;
+        transition: all .4s;
+        bottom: 100px;
+    }
+    h1::after{
+        content: '';
+        width: 0;
+        position: absolute;
+        right: 0;
+        transition: all .4s;
+        top: 100px;
+    }
+    .title:hover h1::before{
+        width: 100%;
+        border: 1px solid rgb(149, 149, 2);
+    }
+    .title:hover h1::after{
+        width: 100%;
+        border: 1px solid red;
+    }
+    .about{
+        margin-top: 150px;
+    }
+    /* *************************************************************** */
+    .second{
+        height: 100vh;
+    }
+    .paraps{
+        width: 80%;
+        margin: 20px auto;
+        font-size: 1.7rem;
+    }
+    /* *************************************************************** */
+    .third{
+        height: 100vh;
+    }
+    .movie{
+        width: 350px;
+        height: 700px;
+    }
+    .movie figure img{
+        width: 350px;
+        height: 500px;
+        object-fit: cover;
+    }
+    .movie-title{
+        font-size: 3rem;
+    }
+    .movie-year{
+        font-size: 2rem;
+    }
+    .movie-desc{
+        font-size: 1.4rem;
+    }
+    /* *************************************************************** */
+    .scenes iframe{
+        width: 450px;
+        height: 500px;
+    }
+
+}
