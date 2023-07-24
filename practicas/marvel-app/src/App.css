@@ -1,0 +1,24 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.page{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+form{
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+main{
+  display: flex;
+  justify-content: center;
+}
