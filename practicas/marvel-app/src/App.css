@@ -20,5 +20,17 @@ form{
 
 main{
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
+}
+
+main ul li{
+  list-style: none;
+}
+
+main ul li img{
+  width: 200px;
+  height: 200px;
+  border-radius: 20px;
 }
