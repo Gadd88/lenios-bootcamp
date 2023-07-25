@@ -1,8 +1,8 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+:root{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .page{
@@ -10,6 +10,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 80vw;
 }
 
 form{
@@ -19,18 +20,33 @@ form{
 }
 
 main{
+  margin-top: 20px;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  width: 100%;
   justify-content: center;
 }
 
-main ul li{
+.characters{
+  display: grid;
   list-style: none;
+  margin: 0;
+  padding: 0;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  width: 100%;
+  gap: 10px;
 }
 
-main ul li img{
+.character{
+  max-width: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.character img{
   width: 200px;
   height: 200px;
   border-radius: 20px;
+  object-fit: cover;
 }

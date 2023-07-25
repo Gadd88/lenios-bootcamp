@@ -3,7 +3,6 @@ import { useRef, useEffect, useState } from 'react';
 import { Characters } from '../components/Characters';
 import { useCharacters } from '../hooks/useCharacters';
 
-
 function useSearch() {
   const [search, updateSearch] = useState('')
   const [error, setError] = useState(null)
@@ -14,7 +13,7 @@ function useSearch() {
       isFirstInput.current = search === ''
       return
     }
-    
+
     if (search === ''){
       setError('No se puede buscar un personaje con la entrada de texto vacia')
       return
@@ -33,17 +32,14 @@ function useSearch() {
   return { search, updateSearch, error }  
 }
 
-
-
 function App() {
-  const { characters } = useCharacters()
   const { search, updateSearch, error } = useSearch()
   const inputRef = useRef();
+  const { characters, getChars, loading } = useCharacters({ search })
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // const inputValue = inputRef.current.value
-    console.log(search)
+    getChars();
   }
 
   const handleChange = (event) => {
@@ -68,7 +64,10 @@ function App() {
       </header>
       <main>
         {/* Lista de personajes */}
-        <Characters characters={characters}/>
+        {
+          loading ? <p>Loading characters... </p> : <Characters characters={characters}/>
+        }
+        
       </main>
     </div>
   )

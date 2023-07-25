@@ -1,14 +1,16 @@
+// eslint-disable-next-line react/prop-types
 export function Characters({ characters }) {
 
     return (
         <>
             {
                 characters ? 
-                    <ul>
+                    <ul className="characters">
                         {
+                            // eslint-disable-next-line react/prop-types
                             characters.map((char)=>{
                                 return (
-                                    <li key={char.id}>
+                                    <li key={char.id} className='character'>
                                         <img
                                             src={char.poster}
                                             alt="Character Image"
