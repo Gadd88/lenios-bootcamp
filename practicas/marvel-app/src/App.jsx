@@ -1,7 +1,14 @@
 import './App.css'
-import { useRef, useEffect, useState } from 'react';
+import logo from '../assets/marvel_logo.png'
+import fav from '../assets/fav.svg'
+import nav from '../components/navbar.module.css'
+import searchbar from '../components/searchbar.module.css'
+import lupa from '../assets/buscar.svg'
+import { useRef, useEffect, useState, useCallback } from 'react';
 import { Characters } from '../components/Characters';
 import { useCharacters } from '../hooks/useCharacters';
+import debounce from 'just-debounce-it'
+import Modal from '../components/Modal'
 
 function useSearch() {
   const [search, updateSearch] = useState('')
@@ -22,10 +29,7 @@ function useSearch() {
       setError('No se puede buscar un personaje con un número')
       return
     }
-    if (search.length<3){
-      setError('La búsqueda debe tener al menos 3 caracteres')
-      return
-    }
+    
     setError(null)
   }, [search])
 
@@ -36,14 +40,24 @@ function App() {
   const { search, updateSearch, error } = useSearch()
   const inputRef = useRef();
   const { characters, getChars, loading } = useCharacters({ search })
+  /* const [modalState, setModalState] = useState(false) */
 
-  const handleSubmit = (e) => {
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const debouncedGetChars = useCallback(
+    debounce(search => {
+      getChars({ search })
+    }, 300)
+    , [getChars])
+  
+    const handleSubmit = (e) => {
     e.preventDefault()
-    getChars();
+    getChars({ search });
   }
 
   const handleChange = (event) => {
-    updateSearch(event.target.value)
+    const newSearch = event.target.value
+    updateSearch(newSearch)
+    debouncedGetChars({ newSearch })
   }
 
   return (
@@ -51,22 +65,38 @@ function App() {
       <header>
         <h1>Marvel Searcher App</h1>
         <form action="" className="form" onSubmit={handleSubmit}>
-          <input 
-            type="text" 
-            placeholder='Ironman, Spiderman...'
-            ref={inputRef}
-            value={search}
-            onChange={handleChange}
-            />
-          <button type='submit'>Buscar</button>
+          <div className={nav.navbar}>
+            <img src={logo} alt="marvel logo" className={nav.marvel}/>
+            <div className={searchbar.searchbar}>
+              <img src={lupa} alt="icono lupa" className={searchbar.lupa}/>
+              <input 
+                type="text" 
+                placeholder='Ironman, Spiderman...'
+                ref={inputRef}
+                value={search}
+                onChange={handleChange}
+                className={searchbar.search}
+                />
+              </div>
+            <button type='submit' className='btn-search'>Buscar</button>
+            <img src={fav} alt="favorito" className={nav.fav}/>
+          </div>
         </form>
         {error && <p style={{ colo:'red' }}>{error}</p>}
       </header>
       <main>
         {/* Lista de personajes */}
+            
         {
-          loading ? <p>Loading characters... </p> : <Characters characters={characters}/>
+          loading ? <p>Loading characters... </p> : <Characters characters={characters} /* onClick={()=>setModalState(!modalState)} *//>
         }
+        <Modal 
+          /* state={modalState}
+          handleModalState={setModalState} */
+          data={characters}
+        >
+          <h1>Hola Modal</h1>
+        </Modal>
         
       </main>
     </div>

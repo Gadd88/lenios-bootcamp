@@ -1,3 +1,4 @@
+import fav from '../assets/fav.svg'
 // eslint-disable-next-line react/prop-types
 export function Characters({ characters }) {
 
@@ -12,10 +13,12 @@ export function Characters({ characters }) {
                                 return (
                                     <li key={char.id} className='character'>
                                         <img
-                                            src={char.poster}
+                                            src={char.poster || `${char.thumbnail.path}.${char.thumbnail.extension}`}
                                             alt="Character Image"
+                                            className='profile-poster'
                                         />
-                                        <h3>{char.name}</h3>
+                                        <h3 className='profile-name'>{char.name}</h3>
+                                        <img src={fav} alt="star" className='fav-icon'/>
                                     </li>
                                 )
                             })

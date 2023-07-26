@@ -1,0 +1,29 @@
+.searchbar{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+    padding: 5px 15px 5px 10px;
+    border-right: 1px solid #e5e5e57b;
+    border-left: 1px solid #e5e5e57b;
+    height: 70%;
+    width: 80%;
+}
+.lupa{
+    width: 25px;
+}
+.search{
+    border: none;
+    width: 100%;
+    background: transparent;
+    color: #fff;
+}
+
+input:focus, input:active{
+    outline: none;
+    padding: 5px;
+    border-bottom: 1px solid #d8d8d8;
+}
+input::placeholder{
+    color: #d8d8d880;
+}

@@ -29,6 +29,7 @@ main{
 .characters{
   display: grid;
   list-style: none;
+  align-items: center;
   margin: 0;
   padding: 0;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -42,11 +43,29 @@ main{
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  cursor: pointer;
+  position: relative;
 }
-
-.character img{
+.character:active{
+  top: 2px;
+  box-shadow: rgba(100, 100, 100, .2);
+}
+.character .profile-name{
+  overflow: hidden;
+  white-space: nowrap;
+  word-break: break-all;
+  text-overflow: ellipsis;
+}
+.character .profile-poster{
   width: 200px;
   height: 200px;
   border-radius: 20px;
   object-fit: cover;
+}
+
+.character .fav-icon{
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  width: 20px;
 }
