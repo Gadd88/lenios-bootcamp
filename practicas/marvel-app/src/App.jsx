@@ -8,7 +8,6 @@ import { useRef, useEffect, useState, useCallback } from 'react';
 import { Characters } from '../components/Characters';
 import { useCharacters } from '../hooks/useCharacters';
 import debounce from 'just-debounce-it'
-import Modal from '../components/Modal'
 
 function useSearch() {
   const [search, updateSearch] = useState('')
@@ -40,7 +39,6 @@ function App() {
   const { search, updateSearch, error } = useSearch()
   const inputRef = useRef();
   const { characters, getChars, loading } = useCharacters({ search })
-  /* const [modalState, setModalState] = useState(false) */
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const debouncedGetChars = useCallback(
@@ -59,6 +57,7 @@ function App() {
     updateSearch(newSearch)
     debouncedGetChars({ newSearch })
   }
+
 
   return (
     <div className='page'>
@@ -88,16 +87,8 @@ function App() {
         {/* Lista de personajes */}
             
         {
-          loading ? <p>Loading characters... </p> : <Characters characters={characters} /* onClick={()=>setModalState(!modalState)} *//>
+          loading ? <p>Loading characters... </p> : <Characters characters={characters} />
         }
-        <Modal 
-          /* state={modalState}
-          handleModalState={setModalState} */
-          data={characters}
-        >
-          <h1>Hola Modal</h1>
-        </Modal>
-        
       </main>
     </div>
   )

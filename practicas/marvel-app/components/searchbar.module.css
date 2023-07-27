@@ -4,9 +4,9 @@
     align-items: center;
     gap: 15px;
     padding: 5px 15px 5px 10px;
-    border-right: 1px solid #e5e5e57b;
-    border-left: 1px solid #e5e5e57b;
-    height: 70%;
+    border-right: 1px solid #c0c0c07b;
+    border-left: 1px solid #c0c0c07b;
+    height: 100%;
     width: 80%;
 }
 .lupa{
@@ -16,7 +16,7 @@
     border: none;
     width: 100%;
     background: transparent;
-    color: #fff;
+    color: #000;
 }
 
 input:focus, input:active{
@@ -25,5 +25,5 @@ input:focus, input:active{
     border-bottom: 1px solid #d8d8d8;
 }
 input::placeholder{
-    color: #d8d8d880;
+    color: #b1b1b180;
 }
