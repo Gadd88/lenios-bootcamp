@@ -47,7 +47,7 @@ function App() {
   const debouncedGetChars = useCallback(
     debounce(search => {
       getChars({ search })
-    }, 300)
+    }, 500)
     , [getChars])
   
   const handleSubmit = (e) => {

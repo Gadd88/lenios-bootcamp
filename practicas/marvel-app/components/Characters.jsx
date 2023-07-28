@@ -165,10 +165,11 @@ const BotonCerrar = styled.button`
     width: 30px;
     height: 30px;
     border: none;
-    background: none;
+    background: #fff;
     cursor: pointer;
     transition: .3s ease all;
     border-radius: 5px;
+    border: 1px solid #bbb;
     color: #1766DC;
     &:hover {
         background: #f2f2f2;
