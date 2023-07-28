@@ -8,6 +8,7 @@ import { useRef, useEffect, useState, useCallback } from 'react';
 import { Characters } from '../components/Characters';
 import { useCharacters } from '../hooks/useCharacters';
 import debounce from 'just-debounce-it'
+import FavChars from '../components/FavChars'
 
 function useSearch() {
   const [search, updateSearch] = useState('')
@@ -39,6 +40,8 @@ function App() {
   const { search, updateSearch, error } = useSearch()
   const inputRef = useRef();
   const { characters, getChars, loading } = useCharacters({ search })
+  const [ charsFav, setCharsFav ] = useState([])
+  const [showFav, setShowFav] = useState(false)
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const debouncedGetChars = useCallback(
@@ -47,9 +50,10 @@ function App() {
     }, 300)
     , [getChars])
   
-    const handleSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
     getChars({ search });
+    console.log(charsFav)
   }
 
   const handleChange = (event) => {
@@ -78,16 +82,18 @@ function App() {
                 />
               </div>
             <button type='submit' className='btn-search'>Buscar</button>
-            <img src={fav} alt="favorito" className={nav.fav}/>
+            <img src={fav} alt="favorito" className={nav.fav} onClick={()=> setShowFav(!showFav)}/>
           </div>
         </form>
-        {error && <p style={{ colo:'red' }}>{error}</p>}
+        {
+          (showFav) ? <FavChars charsFav={charsFav} setCharsFav={setCharsFav}/> : null
+        }
+        {error && <p style={{ color:'red' }}>{error}</p>}
       </header>
       <main>
-        {/* Lista de personajes */}
-            
+        {/* Lista de personajes */}    
         {
-          loading ? <p>Loading characters... </p> : <Characters characters={characters} />
+          loading ? <p>Loading characters... </p> : <Characters characters={characters} charsFav={charsFav} setCharsFav={setCharsFav} />
         }
       </main>
     </div>

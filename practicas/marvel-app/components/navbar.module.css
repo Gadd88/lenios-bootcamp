@@ -20,4 +20,14 @@
 
 .fav{
     width: 20px;
+    padding: 5px;
+    stroke: black;
+    background-color: rgb(116, 115, 115);
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+}
+
+.fav:active{
+    top: 1px;
 }

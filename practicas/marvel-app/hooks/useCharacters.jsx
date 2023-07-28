@@ -15,7 +15,7 @@ export function useCharacters({ search }) {
             setLoading(true)
             setError(null)
             previousSearch.current = search
-            const newCharacters = await searchCharacters( {search })
+            const newCharacters = await searchCharacters({ search })
             setCharacters(newCharacters)
         } catch (e){
             setError(e.message)
@@ -26,9 +26,9 @@ export function useCharacters({ search }) {
     }
     
     useEffect(() => {
-        fetch('https://gateway.marvel.com/v1/public/characters?limit=50&ts=1&apikey=6bff9b32ac69d54beea1d9ba1e17f5af&hash=bd52789632bd7b951b88f9bbf58004ef')
+        fetch('https://gateway.marvel.com/v1/public/characters?limit=100&ts=1&apikey=6bff9b32ac69d54beea1d9ba1e17f5af&hash=bd52789632bd7b951b88f9bbf58004ef')
             .then(res => res.json())
-            .then(data => setCharacters(data.data.results))
+            .then(data => setCharacters(data.data.results.sort(()=>Math.random() - 0.5)))
     }, [])
 
     return { characters, getChars, loading }
