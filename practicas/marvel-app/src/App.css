@@ -3,15 +3,21 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  scroll-behavior: smooth;
 }
 
+body::-webkit-scrollbar{
+  display: none;
+}
 .page{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 80vw;
+  scroll-behavior: smooth;
 }
+
 
 form{
   align-items: center;
@@ -34,7 +40,8 @@ main{
   padding: 0;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   width: 100%;
-  gap: 10px;
+  gap: 5px;
+  scrollbar-width: 2px;
 }
 
 .character{
@@ -67,5 +74,44 @@ main{
   position: absolute;
   top: 10px;
   right: 20px;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  background-color: #505050;
   width: 20px;
 }
+
+@media screen and (max-width: 500px){
+  .characters{
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .character{
+    width: 120px;
+    text-overflow: ellipsis;
+  }
+  .character .profile-poster{
+    width: 100px;
+    height: 100px;
+  }
+  .character .fav-icon{
+    top: 5px;
+    right: 15px;
+  }
+}
+
+@media screen and (min-width: 501px){
+  .character .fav-icon{
+    right: 10px;
+    width: 30px;
+  }
+}
+
+@media screen and (min-width: 900px){
+  .character .fav-icon{
+    right: 25px;
+  }
+}
+  

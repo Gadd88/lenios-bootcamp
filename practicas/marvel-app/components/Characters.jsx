@@ -1,6 +1,6 @@
 import fav from '../assets/fav.svg'
 import styled from 'styled-components'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 // eslint-disable-next-line react/prop-types
 export function Characters({ characters, charsFav, setCharsFav }) {
 
@@ -14,6 +14,12 @@ export function Characters({ characters, charsFav, setCharsFav }) {
     const handleFav = (char) =>{
         setCharsFav([...charsFav, char])
     }
+
+    // useEffect(() => {
+    //     const ul = document.querySelector('.characters')
+    //     ul.style.position='fixed'
+    // }, [])
+    
 
     return (
         <>
@@ -99,6 +105,9 @@ const Overlay = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    ::-webkit-scrollbar{
+        display:none;
+    }
 `;
 
 const ContenedorModal = styled.div`
@@ -108,8 +117,9 @@ const ContenedorModal = styled.div`
     position: relative;
     border-radius: 15px;
     box-shadow: rgba(100,100,111,.2) 0px 7px 29px 0px;
-    padding: 10px;
+    padding: 10px 10px 0 10px;
     overflow: auto;
+    z-index: 5;
     .content{
         display: flex;
         justify-content: space-between;
@@ -118,20 +128,29 @@ const ContenedorModal = styled.div`
             max-width: 200px;
             object-fit: cover;
             border-radius: 20px;
-            margin: 5px;
         }
         .char-des{
             margin: 5px;
+            width: 50%;
+        }
+    }
+    @media screen and (max-width: 500px){
+        width: 90%;
+        height: 400px;
+        .content{
+            img{
+                width: 40%;
+            }
         }
     }
 `
 const EncabezadoModal = styled.div`
     display: flex;
+    height: 60px;
     align-items: center;
     justify-content: space-between;
+    margin-top: -10px;
     margin-bottom: 5px;
-    padding-bottom: 5px;
-    border-bottom: 1px solid #383838;
     h3{
         font-weight: 500;
         font-size: 16px;
@@ -141,7 +160,7 @@ const EncabezadoModal = styled.div`
 
 const BotonCerrar = styled.button`
     position: absolute;
-    top: 20px;
+    top: 15px;
     right: 20px;
     width: 30px;
     height: 30px;

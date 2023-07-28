@@ -1,7 +1,11 @@
 import styled from 'styled-components'
 
-const FavChars = ( { charsFav, setCharsFav } ) => {
+const FavChars = ( { charsFav, setCharsFav, setShowFav } ) => {
 
+    const resetCharsFav = () => {
+        setCharsFav([])
+        setShowFav(false)
+    }
 
   return (
     <FavContainer>
@@ -21,7 +25,7 @@ const FavChars = ( { charsFav, setCharsFav } ) => {
                     ) : 'No Favs'
             }
         </div>
-        <Button onClick={()=> setCharsFav([])}>Clear</Button>
+        <Button onClick={()=> resetCharsFav()}>Clear</Button>
     </FavContainer>
   )
 }
@@ -31,23 +35,35 @@ export default FavChars
 const FavContainer = styled.div`
     background: #fff;
     min-height: 250px;
-    width: 500px;
+    width: 80%;
     border-radius: 20px;
     padding: 0 0 0 10px;
     overflow: auto;
     position: fixed;
     top: 150px;
-    margin: auto;
+    left: 75px;
     display: flex;
     box-sizing: border-box;
     align-items: flex-start;
     flex-direction: column;
-    border: 1px solid red;
-    z-index: 10;
+    border: 2px solid #bbb;
+    z-index: 5;
     .cards-container{
         display: flex;
         flex-wrap: wrap;
+        margin-top: 5px;
     }
+    @media screen and (max-width: 400px){
+        width: 95%;
+        padding: 5px;
+        top: 150px;
+        left: 5px;
+        margin: 5px;
+    }
+    @media screen and (min-width: 900px){
+        width: 90%;
+    }
+    
 `
 
 const Card = styled.div`
@@ -62,6 +78,8 @@ const Card = styled.div`
     overflow: hidden;
     text-overflow: ellipsis;
     position: relative;
+    transition: all .2s ease;
+    margin-top: -20px;
     img{
         width: 100px;
         border-radius: 20px;
@@ -71,6 +89,29 @@ const Card = styled.div`
         font-size: 10px;
         overflow: hidden;
         text-overflow: ellipsis;
+    }
+    @media screen and (max-width: 400px){
+        width: 110px;
+        padding: 0;
+        height: 120px;
+        img{
+            width: 80%;
+            height: 70%;
+        }
+        h3{
+            margin-top: -1px;
+        }
+    }
+    @media screen and (min-width: 401px){
+        width: 200px;
+        img{
+            width: 80%;
+            height: 70%;
+        }
+        h3{
+            font-size: 16px;
+            margin-top: -2px;
+        }
     }
     
 `

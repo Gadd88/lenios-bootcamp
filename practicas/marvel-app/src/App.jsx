@@ -86,7 +86,7 @@ function App() {
           </div>
         </form>
         {
-          (showFav) ? <FavChars charsFav={charsFav} setCharsFav={setCharsFav}/> : null
+          (showFav) ? <FavChars charsFav={charsFav} setCharsFav={setCharsFav} setShowFav={setShowFav}/> : null
         }
         {error && <p style={{ color:'red' }}>{error}</p>}
       </header>
@@ -95,6 +95,7 @@ function App() {
         {
           loading ? <p>Loading characters... </p> : <Characters characters={characters} charsFav={charsFav} setCharsFav={setCharsFav} />
         }
+
       </main>
     </div>
   )
