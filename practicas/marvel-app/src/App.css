@@ -41,7 +41,6 @@ main{
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   width: 100%;
   gap: 5px;
-  scrollbar-width: 2px;
 }
 
 .character{
@@ -62,12 +61,15 @@ main{
   white-space: nowrap;
   word-break: break-all;
   text-overflow: ellipsis;
+  text-align: center;
+  width: 85%;
 }
 .character .profile-poster{
   width: 200px;
   height: 200px;
   border-radius: 20px;
   object-fit: cover;
+  filter: drop-shadow(3px 4px 4px #4444dd);
 }
 
 .character .fav-icon{
@@ -83,14 +85,17 @@ main{
 @media screen and (max-width: 500px){
   .characters{
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     overflow: hidden;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 1px;
   }
   .character{
     width: 120px;
     text-overflow: ellipsis;
+  }
+  .character .profile-name{
+    font-size: 14px;
   }
   .character .profile-poster{
     width: 100px;
@@ -103,6 +108,13 @@ main{
 }
 
 @media screen and (min-width: 501px){
+  .characters{
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+  }
+  .character .profile-name{
+    font-size: 16px;
+  }
   .character .fav-icon{
     right: 10px;
     width: 30px;
@@ -110,6 +122,9 @@ main{
 }
 
 @media screen and (min-width: 900px){
+  .characters{
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
   .character .fav-icon{
     right: 25px;
   }
