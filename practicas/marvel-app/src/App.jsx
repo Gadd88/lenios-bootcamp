@@ -10,6 +10,7 @@ import { useCharacters } from '../hooks/useCharacters';
 import debounce from 'just-debounce-it'
 import FavChars from '../components/FavChars'
 
+
 function useSearch() {
   const [search, updateSearch] = useState('')
   const [error, setError] = useState(null)
@@ -42,6 +43,7 @@ function App() {
   const { characters, getChars, loading } = useCharacters({ search })
   const [ charsFav, setCharsFav ] = useState([])
   const [showFav, setShowFav] = useState(false)
+  
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const debouncedGetChars = useCallback(

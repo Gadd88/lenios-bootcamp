@@ -15,12 +15,10 @@ const FavChars = ( { charsFav, setCharsFav, setShowFav } ) => {
                 charsFav ?
                     charsFav.map((item)=>{
                         return(
-                            <>
                                 <Card key={item.id}>
                                     <img src={`${item.thumbnail.path}.${item.thumbnail.extension}`} alt="character poster" />
                                     <h3>{item.name}</h3>
                                 </Card> 
-                            </>
                         )}
                     ) : 'No Favs'
             }

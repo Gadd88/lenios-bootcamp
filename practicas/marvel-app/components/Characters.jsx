@@ -15,10 +15,10 @@ export function Characters({ characters, charsFav, setCharsFav }) {
         setCharsFav([...charsFav, char])
     }
 
-    // useEffect(() => {
-    //     const ul = document.querySelector('.characters')
-    //     ul.style.position='fixed'
-    // }, [])
+    useEffect(() => {
+        const bodyStyle = document.body.style
+        modalState ? bodyStyle.overflowY = 'hidden' : bodyStyle.overflowY = 'auto'
+    }, [modalState])
     
 
     return (
@@ -27,21 +27,18 @@ export function Characters({ characters, charsFav, setCharsFav }) {
                 {
                     characters ? 
                     // eslint-disable-next-line react/prop-types
-                        characters.map((char)=>{
-                            return (
-                                <>
-                                    <li key={char.id} className='character'>
-                                        <img
-                                            src={char.poster || `${char.thumbnail.path}.${char.thumbnail.extension}`}
-                                            alt="Character Image"
-                                            className='profile-poster'
-                                            onClick={()=>setContent(char)}
-                                        />
-                                        <h3 className='profile-name'>{char.name}</h3>
-                                        <img src={fav} alt="star" className='fav-icon' onClick={()=>handleFav(char)}/>
-                                    </li>
-                                </>
-                            )}) : null
+                        characters.map((char)=>(
+                                <li key={char.id} className='character'>
+                                    <img
+                                        src={char.poster || `${char.thumbnail.path}.${char.thumbnail.extension}`}
+                                        alt="Character Image"
+                                        className='profile-poster'
+                                        onClick={()=>setContent(char)}
+                                    />
+                                    <h3 className='profile-name'>{char.name}</h3>
+                                    <img src={fav} alt="star" className='fav-icon' onClick={()=>handleFav(char)}/>
+                                </li>
+                            )) : null
                 }
             </ul>
             { modalState &&
