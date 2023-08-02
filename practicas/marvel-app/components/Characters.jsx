@@ -1,6 +1,7 @@
 import fav from '../assets/fav.svg'
 import styled from 'styled-components'
 import { useState, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 // eslint-disable-next-line react/prop-types
 export function Characters({ characters, charsFav, setCharsFav }) {
 
@@ -17,10 +18,13 @@ export function Characters({ characters, charsFav, setCharsFav }) {
 
     useEffect(() => {
         const bodyStyle = document.body.style
-        modalState ? bodyStyle.overflowY = 'hidden' : bodyStyle.overflowY = 'auto'
+        modalState 
+            ? (
+                bodyStyle.overflowY = 'hidden'
+                )
+            : bodyStyle.overflowY = 'auto'
     }, [modalState])
     
-
     return (
         <>
             <ul className="characters">
@@ -45,44 +49,51 @@ export function Characters({ characters, charsFav, setCharsFav }) {
                 modalContent?.map((char)=>{
                     return(
                         <Overlay key={char.id}>
-                            <ContenedorModal>
-                                <EncabezadoModal>
-                                    <h2>{char.name}</h2>
-                                </EncabezadoModal>
-                                <BotonCerrar onClick={()=>setModalState(false)}>
-                                    X
-                                </BotonCerrar>
-                                <div className="content">
-                                    <img
-                                        src={char.poster || `${char.thumbnail.path}.${char.thumbnail.extension}`}
-                                        alt="char picture"
-                                        className='profileimg'
-                                    />
-                                    <p className='char-des'>{char.description ? char.description : 'mmm...Weird, this character has no description, sorry...'}</p>
-                                </div>
-                                <div>
-                                    <h4>Comics</h4>
-                                    <ul>
-                                        {
-                                            char.comics?.items.map((comic, index) => {
-                                            return (
-                                                <li key={index}>{comic.name}</li>
-                                            )})
-                                        }
-                                    </ul>
-                                </div>
-                                <div>
-                                    <h4>Series</h4>
-                                    <ul>
-                                        {
-                                            char.series?.items.map((serie, index) => {
-                                            return (
-                                                <li key={index}>{serie.name}</li>
-                                            )})
-                                        }
-                                    </ul>
-                                </div>
-                            </ContenedorModal>   
+                            <AnimatePresence mode='wait'>
+                                <ContenedorModal 
+                                    as={motion.div} drag
+                                    initial={{scale:0.5, opacity: 0}}
+                                    animate={{scale:1, opacity: 1}}
+                                    >
+                                    <EncabezadoModal>
+                                        <h2>{char.name}</h2>
+                                    </EncabezadoModal>
+                                    <BotonCerrar 
+                                        onClick={()=>setModalState(false)}>
+                                        X
+                                    </BotonCerrar>
+                                    <div className="content">
+                                        <img
+                                            src={char.poster || `${char.thumbnail.path}.${char.thumbnail.extension}`}
+                                            alt="char picture"
+                                            className='profileimg'
+                                        />
+                                        <p className='char-des'>{char.description ? char.description : 'mmm...Weird, this character has no description, sorry...'}</p>
+                                    </div>
+                                    <div>
+                                        <h4>Comics</h4>
+                                        <ul>
+                                            {
+                                                char.comics?.items.map((comic, index) => {
+                                                return (
+                                                    <li key={index}>{comic.name}</li>
+                                                )})
+                                            }
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h4>Series</h4>
+                                        <ul>
+                                            {
+                                                char.series?.items.map((serie, index) => {
+                                                return (
+                                                    <li key={index}>{serie.name}</li>
+                                                )})
+                                            }
+                                        </ul>
+                                    </div>
+                                </ContenedorModal>   
+                            </AnimatePresence>
                         </Overlay>
                     )
                 })
@@ -117,6 +128,7 @@ const ContenedorModal = styled.div`
     padding: 10px 10px 0 10px;
     overflow: auto;
     z-index: 5;
+    transition: all .3s ease;
     .content{
         display: flex;
         justify-content: space-between;

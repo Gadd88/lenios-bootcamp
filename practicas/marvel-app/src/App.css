@@ -51,11 +51,16 @@ main{
   flex-direction: column;
   cursor: pointer;
   position: relative;
+  transition: all .3s;
 }
 .character:active{
   top: 2px;
   box-shadow: rgba(100, 100, 100, .2);
 }
+.character:hover{
+  transform: scale(1.1);
+}
+
 .character .profile-name{
   overflow: hidden;
   white-space: nowrap;
@@ -70,6 +75,9 @@ main{
   border-radius: 20px;
   object-fit: cover;
   filter: drop-shadow(3px 4px 4px #4444dd);
+}
+.character:hover .profile-poster{
+  border: 2px solid rgba(0,0,0,.6);
 }
 
 .character .fav-icon{
