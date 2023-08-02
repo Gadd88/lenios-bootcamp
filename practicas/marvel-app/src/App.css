@@ -74,10 +74,10 @@ main{
   height: 200px;
   border-radius: 20px;
   object-fit: cover;
-  filter: drop-shadow(3px 4px 4px #4444dd);
+  filter: drop-shadow(3px 4px 4px #818193);
 }
 .character:hover .profile-poster{
-  border: 2px solid rgba(0,0,0,.6);
+  border: 2px solid rgba(255,255,255,1);
 }
 
 .character .fav-icon{
