@@ -19,6 +19,7 @@ const FavChars = ( { charsFav, setCharsFav, setShowFav, setModalState, modalStat
         setModalState(true)
     }
 
+
   return (
     <FavContainer>
         <h2>Favorites</h2>
@@ -48,13 +49,25 @@ const Close = styled.button`
     position: absolute;
     top: 20px;
     right: 30px;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border: 1px solid white;
     border-radius: 50%;
-    background-color: #000;
+    background-color: rgb(155,10,70);
     cursor: pointer;
     font-weight: bold;
     &:active{
         background-color: red;
+    }
+    @media screen and (max-width:400px){
+        width: 18px;
+        height: 18px;
+        top: 12px;
+        right: 18px;
+
     }
 `
 
