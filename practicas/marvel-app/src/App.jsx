@@ -9,6 +9,8 @@ import { Characters } from '../components/Characters';
 import { useCharacters } from '../hooks/useCharacters';
 import debounce from 'just-debounce-it'
 import FavChars from '../components/FavChars'
+import Modal from '../components/Modal'
+
 
 
 function useSearch() {
@@ -43,6 +45,7 @@ function App() {
   const { characters, getChars, loading } = useCharacters({ search })
   const [ charsFav, setCharsFav ] = useState([])
   const [showFav, setShowFav] = useState(false)
+  
   
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -97,7 +100,7 @@ function App() {
         {
           loading ? <p>Loading characters... </p> : <Characters characters={characters} charsFav={charsFav} setCharsFav={setCharsFav} />
         }
-
+        {/* <Modal modalState={modalState} modalContent={modalContent} setModalState={setModalState} charsFav={charsFav}/> */}
       </main>
     </div>
   )

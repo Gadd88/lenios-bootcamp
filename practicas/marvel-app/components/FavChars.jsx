@@ -1,6 +1,7 @@
 import styled from 'styled-components'
+import Modal from './Modal'
 
-const FavChars = ( { charsFav, setCharsFav, setShowFav } ) => {
+const FavChars = ( { charsFav, setCharsFav, setShowFav, setModalState } ) => {
 
     const resetCharsFav = () => {
         setCharsFav([])
@@ -16,8 +17,9 @@ const FavChars = ( { charsFav, setCharsFav, setShowFav } ) => {
                     charsFav.map((item)=>{
                         return(
                                 <Card key={item.id}>
-                                    <img src={`${item.thumbnail.path}.${item.thumbnail.extension}`} alt="character poster" />
-                                    <h3>{item.name}</h3>
+                                        <img src={`${item.thumbnail.path}.${item.thumbnail.extension}`} alt="character poster" />
+                                        <h3>{item.name}</h3>
+                                        <Modal item={item}/>
                                 </Card> 
                         )}
                     ) : 'No Favs'
