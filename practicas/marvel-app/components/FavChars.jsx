@@ -8,6 +8,11 @@ const FavChars = ( { charsFav, setCharsFav, setShowFav, setModalState } ) => {
         setShowFav(false)
     }
 
+    const deleteFav = (id) =>{
+        const favFiltered = charsFav.filter(item => item.id !== id)
+        setCharsFav(favFiltered)
+    }
+
   return (
     <FavContainer>
         <h2>Favorites</h2>
@@ -19,6 +24,7 @@ const FavChars = ( { charsFav, setCharsFav, setShowFav, setModalState } ) => {
                                 <Card key={item.id}>
                                         <img src={`${item.thumbnail.path}.${item.thumbnail.extension}`} alt="character poster" />
                                         <h3>{item.name}</h3>
+                                        <Close onClick={()=>deleteFav(item.id)}>X</Close>
                                         <Modal item={item}/>
                                 </Card> 
                         )}
@@ -31,6 +37,20 @@ const FavChars = ( { charsFav, setCharsFav, setShowFav, setModalState } ) => {
 }
 
 export default FavChars
+
+const Close = styled.button`
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    border: 1px solid white;
+    border-radius: 50%;
+    background-color: #000;
+    cursor: pointer;
+    font-weight: bold;
+    &:active{
+        background-color: red;
+    }
+`
 
 const FavContainer = styled.div`
     background: #fff;
@@ -80,6 +100,9 @@ const Card = styled.div`
     position: relative;
     transition: all .2s ease;
     margin-top: -20px;
+    &:hover{
+        transform: scale(1.1);
+    }
     img{
         width: 100px;
         border-radius: 20px;
