@@ -39,11 +39,38 @@ const FavChars = ( { charsFav, setCharsFav, setShowFav, setModalState, modalStat
             }
         </div>
         <Button onClick={()=> resetCharsFav()}>Clear</Button>
+        <CloseFav onClick={()=>setShowFav(false)}>X</CloseFav>
     </FavContainer>
   )
 }
 
 export default FavChars
+
+const CloseFav = styled.button`
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid white;
+    border-radius: 50%;
+    background-color: rgb(0,10,70);
+    cursor: pointer;
+    font-weight: bold;
+    &:active{
+        background-color: red;
+    }
+    @media screen and (max-width:400px){
+        width: 18px;
+        height: 18px;
+        top: 12px;
+        right: 18px;
+
+    }
+`
 
 const Close = styled.button`
     position: absolute;
@@ -120,8 +147,8 @@ const Card = styled.div`
     cursor: pointer;
     transition: all .2s ease;
     margin-top: -20px;
-    &:hover{
-        transform: scale(1.1);
+    &:hover img{
+        border: 2px solid rgb(155,10,70);
     }
     img{
         width: 100px;
