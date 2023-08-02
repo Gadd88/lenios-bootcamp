@@ -65,7 +65,8 @@ const Modal = ({modalContent, modalState, setModalState}) => {
                                 </ContenedorModal>   
                             </AnimatePresence>
                         </Overlay>
-                    ))
+                        )
+                    )
             }
         </>
     )

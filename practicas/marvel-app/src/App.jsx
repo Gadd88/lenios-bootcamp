@@ -44,6 +44,8 @@ function App() {
   const { characters, getChars, loading } = useCharacters({ search })
   const [ charsFav, setCharsFav ] = useState([])
   const [showFav, setShowFav] = useState(false)
+  const [modalState, setModalState] = useState(false)
+  const [modalContent, setModalContent] = useState([])
   
   
 
@@ -90,14 +92,14 @@ function App() {
           </div>
         </form>
         {
-          (showFav) ? <FavChars charsFav={charsFav} setCharsFav={setCharsFav} setShowFav={setShowFav}/> : null
+          (showFav) ? <FavChars charsFav={charsFav} setCharsFav={setCharsFav} setShowFav={setShowFav} setModalState={setModalState} modalState={modalState} modalContent={modalContent} setModalContent={setModalContent}/> : null
         }
         {error && <p style={{ color:'red' }}>{error}</p>}
       </header>
       <main>
         {/* Lista de personajes */}    
         {
-          loading ? <p>Loading characters... </p> : <Characters characters={characters} charsFav={charsFav} setCharsFav={setCharsFav} />
+          loading ? <p>Loading characters... </p> : <Characters characters={characters} charsFav={charsFav} setCharsFav={setCharsFav} modalState={modalState} modalContent={modalContent} setModalContent={setModalContent} setModalState={setModalState}/>
         }
       </main>
     </div>

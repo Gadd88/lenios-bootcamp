@@ -4,10 +4,10 @@ import Modal from './Modal'
 // import styled from 'styled-components'
 
 // eslint-disable-next-line react/prop-types
-export function Characters({ characters, charsFav, setCharsFav }) {
+export function Characters({ characters, charsFav, setCharsFav, setModalContent, setModalState, modalContent, modalState }) {
 
-    const [modalState, setModalState] = useState(false)
-    const [modalContent, setModalContent] = useState([])
+    // const [modalState, setModalState] = useState(false)
+    // const [modalContent, setModalContent] = useState([])
     const setContent = (char) =>{
         setModalContent([char])
         setModalState(true)

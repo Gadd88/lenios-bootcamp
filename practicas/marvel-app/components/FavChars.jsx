@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import Modal from './Modal'
 
-const FavChars = ( { charsFav, setCharsFav, setShowFav, setModalState } ) => {
+const FavChars = ( { charsFav, setCharsFav, setShowFav, setModalState, modalState, modalContent, setModalContent } ) => {
 
     const resetCharsFav = () => {
         setCharsFav([])
@@ -13,6 +13,12 @@ const FavChars = ( { charsFav, setCharsFav, setShowFav, setModalState } ) => {
         setCharsFav(favFiltered)
     }
 
+    const showModal = (item) =>{
+        setModalContent([item])
+        setShowFav(false)
+        setModalState(true)
+    }
+
   return (
     <FavContainer>
         <h2>Favorites</h2>
@@ -21,11 +27,11 @@ const FavChars = ( { charsFav, setCharsFav, setShowFav, setModalState } ) => {
                 charsFav ?
                     charsFav.map((item)=>{
                         return(
-                                <Card key={item.id}>
-                                        <img src={`${item.thumbnail.path}.${item.thumbnail.extension}`} alt="character poster" />
+                                <Card key={item.id} >
+                                        <img src={`${item.thumbnail.path}.${item.thumbnail.extension}`} alt="character poster" onClick={()=>showModal(item)}/>
                                         <h3>{item.name}</h3>
                                         <Close onClick={()=>deleteFav(item.id)}>X</Close>
-                                        <Modal item={item}/>
+                                        <Modal modalContent={modalContent} modalState={modalState} setModalState={setModalState}/>
                                 </Card> 
                         )}
                     ) : 'No Favs'
@@ -98,6 +104,7 @@ const Card = styled.div`
     overflow: hidden;
     text-overflow: ellipsis;
     position: relative;
+    cursor: pointer;
     transition: all .2s ease;
     margin-top: -20px;
     &:hover{
