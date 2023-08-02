@@ -66,9 +66,6 @@ const CloseFav = styled.button`
     @media screen and (max-width:400px){
         width: 18px;
         height: 18px;
-        top: 12px;
-        right: 18px;
-
     }
 `
 
