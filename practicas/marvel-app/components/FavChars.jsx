@@ -1,7 +1,17 @@
+import { useContext } from 'react'
 import styled from 'styled-components'
+import { CharactersContext } from '../src/context/CharactersContext'
 import Modal from './Modal'
+import PropTypes from 'prop-types'
 
-const FavChars = ( { charsFav, setCharsFav, setShowFav, setModalState, modalState, modalContent, setModalContent } ) => {
+
+const FavChars = ({ setShowFav }) => {
+
+    FavChars.propTypes = {
+        setShowFav: PropTypes.func
+    }
+
+    const { setModalState, setModalContent, charsFav, setCharsFav } = useContext(CharactersContext)
 
     const resetCharsFav = () => {
         setCharsFav([])
@@ -29,10 +39,10 @@ const FavChars = ( { charsFav, setCharsFav, setShowFav, setModalState, modalStat
                     charsFav.map((item)=>{
                         return(
                                 <Card key={item.id} >
-                                        <img src={`${item.thumbnail.path}.${item.thumbnail.extension}`} alt="character poster" onClick={()=>showModal(item)}/>
+                                        <img src={`${item.thumbnail.path}.${item.thumbnail.extension}` || item.poster} alt="character poster" onClick={()=>showModal(item)}/>
                                         <h3>{item.name}</h3>
                                         <Close onClick={()=>deleteFav(item.id)}>X</Close>
-                                        <Modal modalContent={modalContent} modalState={modalState} setModalState={setModalState}/>
+                                        <Modal />
                                 </Card> 
                         )}
                     ) : 'No Favs'

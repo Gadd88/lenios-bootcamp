@@ -1,8 +1,11 @@
 import styled from 'styled-components'
 import {motion, AnimatePresence} from 'framer-motion'
-import { useEffect } from 'react'
+import { useEffect, useContext } from 'react'
+import { CharactersContext } from '../src/context/CharactersContext'
 
-const Modal = ({modalContent, modalState, setModalState}) => {
+const Modal = () => {
+
+    const { modalContent, modalState, setModalState} = useContext(CharactersContext)
     
     useEffect(() => {
         const bodyStyle = document.body.style
@@ -12,7 +15,7 @@ const Modal = ({modalContent, modalState, setModalState}) => {
                 )
             : bodyStyle.overflowY = 'auto'
     }, [modalState])
-  
+
     return (
         <>
             {

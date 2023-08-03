@@ -1,9 +1,12 @@
 import fav from '../assets/fav.svg'
-import { useEffect } from 'react'
+import { useEffect, useContext } from 'react'
 import Modal from './Modal'
+import { CharactersContext } from '../src/context/CharactersContext'
 
 // eslint-disable-next-line react/prop-types
-export function Characters({ characters, charsFav, setCharsFav, setModalContent, setModalState, modalContent, modalState }) {
+export function Characters({ characters }) {
+
+    const { charsFav, setCharsFav, setModalContent, setModalState, modalState } = useContext(CharactersContext)
 
     const setContent = (char) =>{
         setModalContent([char])
@@ -44,7 +47,7 @@ export function Characters({ characters, charsFav, setCharsFav, setModalContent,
                             )) : null
                 }
             </ul>
-            <Modal modalContent={modalContent} modalState={modalState} setModalState={setModalState}/>
+            <Modal />
         </>
     )
 }

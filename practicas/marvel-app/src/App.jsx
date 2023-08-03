@@ -9,6 +9,8 @@ import { Characters } from '../components/Characters';
 import { useCharacters } from '../hooks/useCharacters';
 import debounce from 'just-debounce-it'
 import FavChars from '../components/FavChars'
+import CharactersProvider from './context/CharactersContext'
+
 
 
 
@@ -39,30 +41,12 @@ function useSearch() {
 }
 
 function App() {
-
-  //initial state of charsFav
-  let initial_favorites  = JSON.parse(localStorage.getItem('charsFav'))
-    if(!initial_favorites){
-        initial_favorites = []
-    }
-
     
     const { search, updateSearch, error } = useSearch()
     const inputRef = useRef();
     const { characters, getChars, loading } = useCharacters({ search })
-    const [ charsFav, setCharsFav ] = useState(initial_favorites)
     const [showFav, setShowFav] = useState(false)
-    const [modalState, setModalState] = useState(false)
-    const [modalContent, setModalContent] = useState([])
-    
-    //save on localStorage the favsChars
-    useEffect(() => {
-          if(initial_favorites){
-              localStorage.setItem('charsFav', JSON.stringify(charsFav))
-          } else {
-              localStorage.setItem('charsFav', JSON.stringify([]))
-          }
-    }, [charsFav,initial_favorites])
+
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const debouncedGetChars = useCallback(
@@ -74,7 +58,6 @@ function App() {
   const handleSubmit = (e) => {
     e.preventDefault()
     getChars({ search });
-    console.log(charsFav)
   }
 
   const handleChange = (event) => {
@@ -87,39 +70,41 @@ function App() {
 
 
   return (
-    <div className='page'>
-      <header>
-        <h1>Marvel Searcher App</h1>
-        <form action="" className="form" onSubmit={handleSubmit}>
-          <div className={nav.navbar}>
-            <img src={logo} alt="marvel logo" className={nav.marvel}/>
-            <div className={searchbar.searchbar}>
-              <img src={lupa} alt="icono lupa" className={searchbar.lupa}/>
-              <input 
-                type="text" 
-                placeholder='Ironman, Spiderman...'
-                ref={inputRef}
-                value={search}
-                onChange={handleChange}
-                className={searchbar.search}
-                />
-              </div>
-            <button type='submit' className='btn-search'>Buscar</button>
-            <img src={fav} alt="favorito" className={nav.fav} onClick={()=> setShowFav(!showFav)}/>
-          </div>
-        </form>
-        {
-          (showFav) ? <FavChars charsFav={charsFav} setCharsFav={setCharsFav} setShowFav={setShowFav} setModalState={setModalState} modalState={modalState} modalContent={modalContent} setModalContent={setModalContent}/> : null
-        }
-        {error && <p style={{ color:'red' }}>{error}</p>}
-      </header>
-      <main>
-        {/* Lista de personajes */}    
-        {
-          loading ? <p>Loading characters... </p> : <Characters characters={characters} charsFav={charsFav} setCharsFav={setCharsFav} modalState={modalState} modalContent={modalContent} setModalContent={setModalContent} setModalState={setModalState}/>
-        }
-      </main>
-    </div>
+    <CharactersProvider>
+      <div className='page'>
+        <header>
+          <h1>Marvel Searcher App</h1>
+          <form action="" className="form" onSubmit={handleSubmit}>
+            <div className={nav.navbar}>
+              <img src={logo} alt="marvel logo" className={nav.marvel}/>
+              <div className={searchbar.searchbar}>
+                <img src={lupa} alt="icono lupa" className={searchbar.lupa}/>
+                <input 
+                  type="text" 
+                  placeholder='Ironman, Spiderman...'
+                  ref={inputRef}
+                  value={search}
+                  onChange={handleChange}
+                  className={searchbar.search}
+                  />
+                </div>
+              <button type='submit' className='btn-search'>Buscar</button>
+              <img src={fav} alt="favorito" className={nav.fav} onClick={()=> setShowFav(!showFav)}/>
+            </div>
+          </form>
+          {
+            (showFav) ? <FavChars setShowFav={setShowFav}/> : null
+          }
+          {error && <p style={{ color:'red' }}>{error}</p>}
+        </header>
+        <main>
+          {/* Lista de personajes */}    
+          {
+            loading ? <p>Loading characters... </p> : <Characters characters={characters} />
+          }
+        </main>
+      </div>
+    </CharactersProvider>
   )
 }
 
